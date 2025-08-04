@@ -16,7 +16,7 @@ trainer.visualize_generation(num_samples=64, save_path="random_samples/generated
 
 Then you will get a picture just like this:
 
-<img src="./asserts/best.png" alt="generated_samples" style="zoom:18%;" />
+<img src="./asserts/best.png" alt="generated_samples" style="zoom:10%;" />
 
 If you want to generate hundreds of samples, you can use the code below: 
 
@@ -56,13 +56,14 @@ You can use the VAE weight to value the latent space. The method involves random
 
 Then you will get a picture just like this:
 
-<img src="./asserts/random_samples_epoch_g.png" alt="random_samples_epoch_g" style="zoom:18%;" />
+<img src="./asserts/random_samples_epoch_g.png" alt="random_samples_epoch_g" style="zoom:10%;" />
 
 
 
 ## Train Spherical Interpolation Flow Model
 
 The spherical interpolation formula we use is:
+
 $$
 \text{slerp}(t) = \frac{\sin((1 - t)\omega)}{\sin(\omega)} \mathbf{x}_0 + \frac{\sin(t \omega)}{\sin(\omega)} \mathbf{x}_1
 $$
@@ -72,6 +73,7 @@ $$
 $$
 
 The unit velocity at ${x}_0$ is:
+
 $$
 \frac{\mathbf{x}_1 - (\mathbf{x}_0^\top \mathbf{x}_1)\mathbf{x}_0}{\sin(\omega)}
 $$
@@ -81,6 +83,7 @@ $$
 $$
 
 The unit velocity at ${x}_t$ is:
+
 $$
 \frac{\mathbf{x}_1 - (\mathbf{x}_t^\top \mathbf{x}_1)\mathbf{x}_t}{\sin(\omega)}
 $$
@@ -100,5 +103,6 @@ You can run the `main.py` to train the Spherical Interpolation Flow Model.
 We use the Resnet18 as our classifier. The structure of the classifier is in the `model.py` 
 
 ## Evaluate The Results
+
 
 At last ,you can run the `classfierrf.py` to test the percentage of pattern coverage.
